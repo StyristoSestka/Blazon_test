@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Rotator</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        img { max-width: 500px; margin-top: 20px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Rotate Image 180&deg;</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Upload & Rotate</button>
+    </form>
+
+    {% if filename %}
+        <h2>Result:</h2>
+        <img src="{{ url_for('display_image', filename=filename) }}">
+        <p><a href="/">Rotate another image</a></p>
+    {% endif %}
+</body>
+</html>
